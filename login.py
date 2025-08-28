@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
+# this is to set a ready-made condition with WebDriverWait function, so you won't be hardcoding time.sleep()
 from selenium.webdriver.support import expected_conditions as EC
 
 # Sample test data
@@ -14,15 +15,15 @@ test_data = [
 @pytest.fixture
 def driver():
     # Setup
-    driver = webdriver.Chrome()
-    wait = WebDriverWait(driver, 10)
-    yield driver, wait
+    driver = webdriver.Chrome()                         # Start Chrome
+    wait = WebDriverWait(driver, 10)            # Define a wait object (max 10 seconds)
+    yield driver, wait                                  # Give driver+wait to the test
     # Teardown (runs after test ends, pass or fail)
-    driver.quit()
+    driver.quit()                                       # Close browser (always runs, even if test fails)
 
 @pytest.mark.parametrize("username, password, expected", test_data)
 def test_login(driver, username, password, expected):
-    driver, wait = driver  # unpack fixture values
+    driver, wait = driver                               # unpack fixture values
 
     driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
