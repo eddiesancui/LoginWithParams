@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LoginTestsWithParams.iml" filepath="$PROJECT_DIR$/.idea/LoginTestsWithParams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LoginWithParams.iml" filepath="$PROJECT_DIR$/.idea/LoginWithParams.iml" />
     </modules>
   </component>
 </project>
